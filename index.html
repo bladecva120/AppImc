@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP IMC</title>
+    <link rel="shortcut icon" href="icon-Imc.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" media="screen">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(0, 0, 0);
+        }
+
+        div#container {
+            width: 100vw;
+            min-height: 100vh;
+            background-color: aquamarine;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            background: black url('img-trena.jpg') center center no-repeat;
+            background-size: cover;
+        }
+
+        header {
+            font-size: 1em;
+            text-align: center;
+            transform: scaleY(1.3);
+            margin: 20px 0;
+        }
+
+
+        div#div1>section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+
+        aside>div#pontometro {
+            display: none;
+            background-color: black;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border-left: 110px solid blue;
+            border-top: 110px solid green;
+            border-right: 110px solid yellow;
+            border-bottom: 110px solid red;
+            box-shadow: 0 0 0 6px #333, 0 0 0 15px white, 0 0 0 17px #111;
+        }
+
+
+        aside>span#seta {
+            display: none;
+            position: absolute;
+            clip-path: polygon(50% 0%, 90% 50%, 60% 40%, 60% 100%, 40% 100%, 40% 40%, 10% 50%);
+            background-color: rgb(0, 0, 0);
+            width: 40px;
+            height: 50px;
+            top: 153px;
+        }
+
+        aside#ponto {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #ipeso,
+        #ialtura {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.797);
+            padding: 5px;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            background-color: #c0c0c0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        input#calcular {
+            display: block;
+            background-color: rgb(4, 81, 56);
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+        }
+
+        input#calcular:hover {
+            background-color: rgb(9, 180, 123);
+            color: black;
+        }
+
+        input#limpar {
+            width: 100%;
+            background-color: rgb(255, 47, 0);
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        #exit {
+            background-color: white;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid black;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.797);
+            user-select: none;
+            width: 100%;
+        }
+
+        output#saida1,
+        #saida2 {
+            display: block;
+            font-size: 0.8em;
+            font-size: 1.2em;
+            height: 40px;
+            width: 100%;
+            line-height: 40px;
+            padding: 5px;
+        }
+
+
+        section>textarea {
+            height: 370px;
+            width: 85vw;
+            resize: none;
+            font-size: 1em;
+            text-align: justify;
+            padding: 7px;
+            padding-top: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.797);
+        }
+
+        @keyframes identifier {
+            0% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            div#div1>section {
+                justify-content: space-around;
+            }
+
+            aside>div#pontometro {
+                display: block;
+            }
+
+            aside>span#seta {
+                display: block;
+            }
+
+            section>textarea {
+                font-size: 1.3em;
+            }
+
+        }
+
+        @media screen and (min-width: 992px) {
+            div#div1>section {
+                justify-content: space-around;
+            }
+
+            aside>span#seta {
+                display: block;
+                left: 720px;
+            }
+
+            div#container {
+                width: 100vw;
+                margin: auto;
+            }
+
+            div#div1,
+            #div2,
+            #itexto {
+                width: 75vw;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            div#div1>section {
+                justify-content: space-around;
+            }
+
+            aside>span#seta {
+                display: block;
+                left: 720px;
+            }
+
+            div#container {
+                width: 100vw;
+                margin: auto;
+            }
+
+            div#div1,
+            #div2,
+            #itexto {
+                width: 75vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1>Índice de Massa Corporal</h1>
+        </header>
+        <main>
+            <div id="div1">
+                <section>
+                    <aside id="topo">
+                        <input type="text" name="peso" id="ipeso" placeholder="Informe seu peso(kg)"
+                            autocomplete="off"><br>
+                        <input type="text" name="altura" id="ialtura" placeholder="Informe sua altura(m)"
+                            autocomplete="off">
+                        <input id="calcular" type="submit" value="Calcular">
+                        <input id="limpar" type="reset" value="Limpar">
+                        <div id="exit">
+                            <output id="saida1"></output>
+                            <output id="saida2"></output>
+                        </div>
+                    </aside>
+                    <aside id="ponto">
+                        <div id="pontometro"></div>
+                        <span id="seta"></span>
+                    </aside>
+                </section>
+            </div>
+            <div id="div2">
+                <section>
+                    <textarea name="texto" id="itexto"></textarea>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script>
+    var peso = document.querySelector('#ipeso');
+    var altura = document.querySelector('#ialtura');
+    var calcular = document.querySelector('#calcular');
+    var limpar = document.querySelector('#limpar');
+    var saida1 = document.querySelector('#saida1');
+    var saida2 = document.querySelector('#saida2');
+    var areaTexto = document.querySelector('#itexto');
+    var exit = document.querySelector('#exit');
+    var seta = document.querySelector('#seta');
+    var value = 360 * 4;
+    var pontometro = document.querySelector('#pontometro')
+
+    calcular.addEventListener('click', calc);
+    limpar.addEventListener('click', resetar);
+
+    function resetar() {
+        window.location.reload()
+    }
+
+
+    function calc() {
+
+        var n1 = Number(peso.value);
+        var n2 = Number(altura.value);
+        var calcPesoAltura = n1 / (n2 * n2);
+
+        if (n1 == "" || n2 == "") {
+            window.alert('Preencha todos os campos')
+            saida1.innerHTML == "";
+            saida2.innerHTML == "";
+            areaTexto.innerHTML == "";
+        } else if (calcPesoAltura < 18.5) {
+            pontometro.style.transition = 'transform 5s ease-in-out';
+            pontometro.style.transform = 'rotate(' + value + 'deg)' + 'rotate(90deg)';
+            exit.style.background = '#00f';
+            exit.style.color = '#fff';
+            exit.style.animation = 'identifier 1s ease-in-out infinite'
+
+            saida1.innerHTML = `IMC: ${calcPesoAltura.toFixed(2)} - MAGREZA`;
+            saida2.innerHTML = 'Você está ABAIXO do peso'
+            areaTexto.innerHTML = 'Um IMC inferior a 18,5 é um indicador de baixo peso, não sendo recomendado e, podendo ser tão ou mais prejudicial do que ter excesso de peso. Este pode dever-se a vários fatores, tais como distúrbios de comportamento alimentar (exemplo: anorexia, bulimia), doenças inflamatórias intestinais, doenças metabólicas e stress. As principais consequências de um baixo peso podem ser a queda de cabelo, amenorreia (ausência de menstruação), fadiga, infertilidade e ansiedade. Nestas situações é necessário um acompanhamento nutricional e médico, de forma a avaliar a existência de possíveis carências nutricionais e garantir uma nutrição adequada.';
+        } else if (calcPesoAltura <= 24.9) {
+            pontometro.style.transition = 'transform 5s ease-in-out'
+            pontometro.style.transform = 'rotate(' + value + 'deg)';
+            exit.style.background = 'green';
+            exit.style.color = '#fff';
+            exit.style.animation = 'identifier 1s ease-in-out infinite'
+
+            saida1.innerHTML = `IMC: ${calcPesoAltura.toFixed(2)} - NORMAL`;
+            saida2.innerHTML = 'Seu peso está NORMAL'
+            areaTexto.innerHTML = 'Um IMC entre o 18,5 e os 24,9, classificativo de peso normal, corresponde ao intervalo de peso ideal para cada pessoa, tendo em conta a sua altura. Este intervalo de peso está associado a um menor risco e uma menor incidência de doenças.'
+        } else if (calcPesoAltura <= 29.9) {
+            pontometro.style.transition = 'transform 5s ease-in-out'
+            pontometro.style.transform = 'rotate(' + value + 'deg)' + 'rotate(270deg)';
+            exit.style.background = '#ff0';
+            exit.style.color = '#000';
+            exit.style.animation = 'identifier 1s ease-in-out infinite'
+
+            saida1.innerHTML = `IMC: ${calcPesoAltura.toFixed(2)} - SOBREPESO`;
+            saida2.innerHTML = 'Você está ACIMA do peso'
+            areaTexto.innerHTML = 'O excesso de peso, também considerado como pré-obesidade, corresponde a um IMC entre os 25 e 29,9. Perante um IMC indicativo de excesso de peso, é fundamental avaliar não só para o peso e respetivo IMC, mas também a composição corporal, ou seja, para a forma como o peso se encontra distribuído e, perceber se existe ou não um excesso de massa gorda.'
+        } else {
+            pontometro.style.transition = 'transform 5s ease-in-out'
+            pontometro.style.transform = 'rotate(' + value + 'deg)' + 'rotate(180deg)';
+            exit.style.background = '#f00';
+            exit.style.color = '#fff';
+            exit.style.animation = 'identifier 1s ease-in-out infinite'
+
+            saida1.innerHTML = `IMC: ${calcPesoAltura.toFixed(2)} - OBSIDADE`;
+            saida2.innerHTML = 'Você está OBESO'
+            areaTexto.innerHTML = 'Quando o valor do IMC é superior a 30, estamos perante um valor indicativo de obesidade, sendo que conforme o valor de IMC obtido a obesidade pode ser classificada em 3 graus, como moderada, severa ou mórbida. Esta é uma doença crónica, com repercussões para a saúde da pessoa, pelo que um acompanhamento nutricional por um nutricionista e um acompanhamento médico é fundamental.'
+        }
+
+
+    }
+
+</script>
+
+</html>
