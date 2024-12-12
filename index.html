@@ -17,108 +17,69 @@
 
         html,
         body {
-            width: 100vw;
-            height: 100vh;
             background-color: rgb(0, 0, 0);
         }
 
         body>div#container {
-            width: 100vw;
-            min-height: 100vh;
+            height: 100vh;
+            width: 90%;
             background-color: aquamarine;
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
             background: black url('img-trena.jpg') center center no-repeat;
             background-size: cover;
-        }
-
-        header {
-            font-size: 1em;
+            display: block;
             text-align: center;
-            transform: scaleY(1.3);
-            margin: 20px;
-            margin-top: 40px;
+            margin: auto;
         }
 
-
-        div#div1>section {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-
-        aside>div#pontometro {
-            display: none;
-            background-color: black;
-            width: 240px;
-            height: 240px;
-            border-radius: 50%;
-            border-left: 110px solid blue;
-            border-top: 110px solid green;
-            border-right: 110px solid yellow;
-            border-bottom: 110px solid red;
-            box-shadow: 0 0 0 6px #333, 0 0 0 15px white, 0 0 0 17px #111;
-        }
-
-
-        aside>span#seta {
-            display: none;
-            position: absolute;
-            clip-path: polygon(50% 0%, 90% 50%, 60% 40%, 60% 100%, 40% 100%, 40% 40%, 10% 50%);
-            background-color: rgb(0, 0, 0);
-            width: 40px;
-            height: 50px;
-            top: 153px;
-        }
-
-        aside#ponto {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
+        header>h1 {
+            transform: scaleY(3);
+            font-size: 1em;
+            padding-top: 20px;
+            margin-bottom: 40px;
         }
 
         #ipeso,
         #ialtura {
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.797);
             padding: 5px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-size: 1.1em;
-            background-color: #c0c0c0;
+            background-color: #ffffff6f;
             font-weight: bold;
             text-align: center;
+            width: 250px;
         }
 
         input#calcular {
-            display: block;
-            background-color: rgb(4, 81, 56);
-            color: white;
-            font-weight: bold;
+            background-color: rgb(9, 180, 123);
+            color: rgb(0, 0, 0);
             border-radius: 5px;
             padding: 10px;
-            width: 100%;
-            font-weight: 700;
+            font-weight: 900;
             letter-spacing: 3px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            width: 250px;
         }
 
         input#calcular:hover {
-            background-color: rgb(9, 180, 123);
-            color: black;
+            background-color: rgb(4, 81, 56);
+            color: rgb(255, 255, 255);
         }
 
         input#limpar {
-            width: 100%;
-            background-color: rgb(255, 47, 0);
-            color: white;
-            font-weight: bold;
+            background-color: rgb(255, 162, 0);
+            color: rgb(0, 0, 0);
             border-radius: 5px;
             padding: 10px;
-            font-weight: 700;
+            font-weight: 900;
             letter-spacing: 3px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            width: 250px;
+        }
+
+        input#limpar:hover {
+            background-color: rgb(255, 0, 34);
+            color: rgb(255, 255, 255);
         }
 
         #exit {
@@ -128,27 +89,25 @@
             border: 1px solid black;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.797);
             user-select: none;
-            width: 100%;
             background-color: rgba(255, 255, 255, 0.861);
+            width: 250px;
+            height: 50px;
+            justify-self: center;
+            margin-bottom: 10px;
         }
 
         output#saida1,
         #saida2 {
-            display: block;
-            font-size: 0.8em;
-            font-size: 1.2em;
-            height: 40px;
-            width: 100%;
-            line-height: 40px;
-            padding: 5px;
+            font-size: 1.1em;
+            height: 25px;
+            line-height: 25px;
         }
 
 
         section>textarea {
-            height: 385px;
-            width: 85vw;
+            height: 250px;
+            width: 80%;
             resize: none;
-            font-size: 1em;
             text-align: justify;
             padding: 7px;
             padding-top: 20px;
@@ -174,65 +133,54 @@
         }
 
         @media screen and (min-width: 768px) {
-            div#div1>section {
-                justify-content: space-around;
+            body>div#container {
+                max-width: 90%;
             }
 
-            aside>div#pontometro {
-                display: block;
+            header>h1 {
+                transform: scaleY(2);
+                font-size: 2em;
+                margin-bottom: 50px;
             }
 
-            aside>span#seta {
-                display: block;
+            #exit {
+                width: 300px;
+                height: 70px;
+                padding: 8px;
             }
 
             section>textarea {
-                font-size: 1.3em;
-            }
+                width: 500px;
 
+            }
         }
 
         @media screen and (min-width: 992px) {
-            div#div1>section {
-                justify-content: space-around;
+            header>h1 {
+                transform: scaleY(2.5);
+                font-size: 2em;
+                margin-bottom: 50px;
             }
 
-            aside>span#seta {
-                display: block;
-                left: 720px;
-            }
-
-            div#container {
-                width: 100vw;
-                margin: auto;
-            }
-
-            div#div1,
-            #div2,
-            #itexto {
-                width: 75vw;
+            #exit {
+                width: 300px;
+                height: 70px;
+                padding: 8px;
             }
         }
 
         @media screen and (min-width: 1200px) {
-            div#div1>section {
-                justify-content: space-around;
+
+            header>h1 {
+                transform: scaleY(2.5);
+                font-size: 2em;
+                margin-bottom: 50px;
             }
 
-            aside>span#seta {
-                display: block;
-                left: 720px;
-            }
-
-            div#container {
-                width: 100vw;
-                margin: auto;
-            }
-
-            div#div1,
-            #div2,
-            #itexto {
-                width: 75vw;
+            #exit {
+                width: 300px;
+                height: 70px;
+                padding: 8px;
             }
         }
     </style>
@@ -247,20 +195,15 @@
             <div id="div1">
                 <section>
                     <aside id="topo">
-                        <input type="text" name="peso" id="ipeso" placeholder="Informe seu peso(kg)"
-                            autocomplete="off"><br>
+                        <input type="text" name="peso" id="ipeso" placeholder="Informe seu peso(kg)" autocomplete="off">
                         <input type="text" name="altura" id="ialtura" placeholder="Informe sua altura(m)"
-                            autocomplete="off">
+                            autocomplete="off"><br>
                         <input id="calcular" type="submit" value="Calcular">
                         <input id="limpar" type="reset" value="Limpar">
                         <div id="exit">
                             <output id="saida1"></output>
                             <output id="saida2"></output>
                         </div>
-                    </aside>
-                    <aside id="ponto">
-                        <div id="pontometro"></div>
-                        <span id="seta"></span>
                     </aside>
                 </section>
             </div>
@@ -282,9 +225,6 @@
     var saida2 = document.querySelector('#saida2');
     var areaTexto = document.querySelector('#itexto');
     var exit = document.querySelector('#exit');
-    var seta = document.querySelector('#seta');
-    var value = 360 * 4;
-    var pontometro = document.querySelector('#pontometro')
 
     calcular.addEventListener('click', calc);
     limpar.addEventListener('click', resetar);
@@ -306,8 +246,6 @@
             saida2.innerHTML == "";
             areaTexto.innerHTML == "";
         } else if (calcPesoAltura < 18.5) {
-            pontometro.style.transition = 'transform 5s ease-in-out';
-            pontometro.style.transform = 'rotate(' + value + 'deg)' + 'rotate(90deg)';
             exit.style.background = '#00f';
             exit.style.color = '#fff';
             exit.style.animation = 'identifier 1s ease-in-out infinite'
@@ -316,8 +254,6 @@
             saida2.innerHTML = 'Você está ABAIXO do peso'
             areaTexto.innerHTML = 'Um IMC inferior a 18,5 é um indicador de baixo peso, não sendo recomendado e, podendo ser tão ou mais prejudicial do que ter excesso de peso. Este pode dever-se a vários fatores, tais como distúrbios de comportamento alimentar (exemplo: anorexia, bulimia), doenças inflamatórias intestinais, doenças metabólicas e stress. As principais consequências de um baixo peso podem ser a queda de cabelo, amenorreia (ausência de menstruação), fadiga, infertilidade e ansiedade. Nestas situações é necessário um acompanhamento nutricional e médico, de forma a avaliar a existência de possíveis carências nutricionais e garantir uma nutrição adequada.';
         } else if (calcPesoAltura <= 24.9) {
-            pontometro.style.transition = 'transform 5s ease-in-out'
-            pontometro.style.transform = 'rotate(' + value + 'deg)';
             exit.style.background = 'green';
             exit.style.color = '#fff';
             exit.style.animation = 'identifier 1s ease-in-out infinite'
@@ -326,8 +262,6 @@
             saida2.innerHTML = 'Seu peso está NORMAL'
             areaTexto.innerHTML = 'Um IMC entre o 18,5 e os 24,9, classificativo de peso normal, corresponde ao intervalo de peso ideal para cada pessoa, tendo em conta a sua altura. Este intervalo de peso está associado a um menor risco e uma menor incidência de doenças.'
         } else if (calcPesoAltura <= 29.9) {
-            pontometro.style.transition = 'transform 5s ease-in-out'
-            pontometro.style.transform = 'rotate(' + value + 'deg)' + 'rotate(270deg)';
             exit.style.background = '#ff0';
             exit.style.color = '#000';
             exit.style.animation = 'identifier 1s ease-in-out infinite'
@@ -336,8 +270,6 @@
             saida2.innerHTML = 'Você está ACIMA do peso'
             areaTexto.innerHTML = 'O excesso de peso, também considerado como pré-obesidade, corresponde a um IMC entre os 25 e 29,9. Perante um IMC indicativo de excesso de peso, é fundamental avaliar não só para o peso e respetivo IMC, mas também a composição corporal, ou seja, para a forma como o peso se encontra distribuído e, perceber se existe ou não um excesso de massa gorda.'
         } else {
-            pontometro.style.transition = 'transform 5s ease-in-out'
-            pontometro.style.transform = 'rotate(' + value + 'deg)' + 'rotate(180deg)';
             exit.style.background = '#f00';
             exit.style.color = '#fff';
             exit.style.animation = 'identifier 1s ease-in-out infinite'
